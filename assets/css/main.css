@@ -1,34 +1,277 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css");
+@import url(https://fontawesome.com/icons/magnifying-glass?f=classic&s=solid);
 :root {
-    --primary-color: #333;
-    --secondary-color: #f4f4f4;
-    --background-color: #d3d3d3;
-    --border-color: #ccc;
-    --hover-color: #444;
-    --active-color: #222;
-    --focus-color: #444;
-    --button-color: #4CAF50;
-    --button-hover-color: #45a049;
-    --valid-color: green;
-    --invalid-color: red;
+  --white: #ffffff;
+  --background: #eee;
+  --font-family: "helvetica neue", helvetica, arial, sans-serif;
+  --font-size-one: 2.5rem;
+  --font-size-two: 1.5rem;
+  --product-font-size: 1rem;
+  --generel-text-color: #000;
 }
-/* #region Global Styles */
+/* #region GLobals */
+/* GLOBAL CSS */
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
-
 body {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-color: var(--secondary-color);
-  color: black;
+  font-family: var(--font-family);
+  font-size: var(--font-size-two);
+  background-color: var(--white);
+}
+/* #endregion */
+/* #region Header */
+.mainHeader {
+  display: flex;
+  background-color: var(--background);
+  padding: 0 1rem;
+}
+.logoContainer {
+  display: block;
+  margin: 0 auto;
+}
+.logoContainer img {
+  margin-top: 1rem;
+  width: 100%;
+  height: auto;
+}
+.search-container {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+.search-container i {
+  font-size: 20px;
+  margin-right: 10px;
+}
+.search-container input {
+  border: none;
+  flex: 1;
+  padding: 8px;
+  font-size: 16px;
+}
+header .krypLogo {
+  width: 20%;
+  margin: 0 auto;
+  text-align: center;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  color: var(--primary-color);
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  margin-bottom: 1rem;
+/* #endregion */
+/* #region NAVIGATION */
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: var(--background);
 }
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+nav ul li {
+  font-size: 1rem;
+  font-weight: 400;
+}
+nav ul li a {
+  text-decoration: none;
+  color: var(--generel-text-color);
+}
+nav ul li a:hover {
+  color: var(--white);
+  border-radius: 5px;
+}
+.cartLink i {
+  font-size: 25px;
+}
+/* #endregion */
+/* #region HERO */
+.heroImage img {
+  width: 100%;
+  height: auto;
+}
+/* #endregion */
+/* #region MAIN */
+/* Main CONTENT */
+/* #region PRODUCTS */
+#products h2 {
+  font-size: var(--font-size-one);
+  text-align: center;
+  margin: 2rem 0;
+}
+.productCards h5 {
+  font-size: var(--font-size-two);
+  text-align: center;
+  margin: 1rem 0;
+}
+.productCards p {
+  font-size: var(--product-font-size);
+  text-align: center;
+  margin: 1rem 0;
+}
+#products .productCards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  padding: 0 10rem;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+.productCards button {
+  background-color: var(--background);
+  border: none;
+  padding: 0.5rem 4rem;
+  font-size: 16px;
+  cursor: pointer;
+}
+.productCards button:hover {
+  background-color: var(--generel-text-color);
+  color: var(--background);
+}
+/* #endregion PRODUCTS */
+/* #region ABOUT KRYP */
+#about h2 {
+  font-size: var(--font-size-one);
+  text-align: center;
+  margin-top: 6rem;
+}
+.flexContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem 6rem;
+}
+.flexContainer img {
+  width: 100%;
+  height: auto;
+}
+/* #endregion */
+
+/* #region recepies */
+#recepies h2 {
+  font-size: var(--font-size-one);
+  text-align: center;
+  margin-top: 6rem;
+}
+
+.image-container {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.recepieContainer {
+  margin-top: 7rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  padding: 0 10rem;
+  text-align: center;
+  margin-bottom: 5rem;
+}
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.dialog {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 10px;
+}
+
+.image-container:hover .dialog {
+  opacity: 1;
+}
+/* #endreagion  */
+/* #region CONTACT */
+#contact h2 {
+  font-size: var(--font-size-one);
+  text-align: center;
+  margin-top: 6rem;
+  margin-bottom: 2rem;
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+  background-color: lightgray;
+  border: 1px solid #d1d9e0;
+  border-radius: 8px;
+}
+
+.contactForm label {
+  font-size: 1rem;
+  color: #333;
+}
+
+.contactForm input,
+.contactForm textarea {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: 1px solid #d1d9e0;
+  border-radius: 4px;
+  background-color: #ffffff;
+  resize: none;
+}
+
+.contactForm input:focus,
+.contactForm textarea:focus {
+  outline: none;
+  border-color: #888;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+}
+
+.contactForm button {
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  color: #ffffff;
+  background-color: #888;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contactForm button:hover {
+  background-color: #333;
+}
+.contactContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 0 10rem;
+  text-align: center;
+}
+.contactContainer p {
+  font-size: var(--product-font-size);
+  text-align: center;
+  margin: 1rem 0;
+}
+/* #endregion */
 /* #endregion */
